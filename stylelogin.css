@@ -1,0 +1,104 @@
+@import url('https://fonts.googleapis.com/css2?family=Kanit:wght@300;400;500&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Kanit', sans-serif;
+}
+
+body {
+    background: linear-gradient(135deg, #d8f3dc, #b7e4c7);
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* กล่อง */
+.login-container {
+    background: #fff;
+    padding: 40px;
+    border-radius: 20px;
+    width: 350px;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+    text-align: center;
+}
+
+h2 {
+    color: #1b4332;
+}
+
+.sub {
+    font-size: 14px;
+    margin-bottom: 20px;
+    color: #409167;
+}
+
+/* input */
+.input-box {
+    position: relative;
+    margin: 15px 0;
+}
+
+.input-box input {
+    width: 100%;
+    padding: 12px 40px;
+    border-radius: 10px;
+    border: 2px solid #eee;
+    outline: none;
+    transition: 0.3s;
+    padding-right: 50px;
+}
+
+.input-box input:focus {
+    border-color: #52b788;
+}
+
+/* icon ซ้าย */
+.input-box i {
+    position: absolute;
+    left: 10px;
+    top: 12px;
+    color: #409167;
+}
+
+/* icon ขวา */
+.toggle {
+    position: absolute;
+    right: 5px;
+    top: -5px;
+    cursor: pointer;
+    transform: translateY(-50%);
+}
+
+.toggle i{
+    font-size: 26px;
+}
+
+/* ปุ่ม */
+.login-btn {
+    width: 100%;
+    padding: 12px;
+    background: #2d6a4f;
+    color: white;
+    border: none;
+    border-radius: 25px;
+    margin-top: 15px;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.login-btn:hover {
+    background: #1b4332;
+}
+
+/* error */
+.error-msg {
+    background: #ffe5e5;
+    color: #b00020;
+    padding: 10px;
+    border-radius: 10px;
+    margin-top: 10px;
+    font-size: 14px;
+}

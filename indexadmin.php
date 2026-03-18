@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -7,7 +6,7 @@
     <title>Document</title>
 </head>
 <body>
-    <?php echo "เข้ามาทำ ค ไร ไอสัส"; ?>
+    <h1>Hello admin</h1>
     
 </body>
 </html>
