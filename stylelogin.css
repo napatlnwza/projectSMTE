@@ -1,104 +1,182 @@
-@import url('https://fonts.googleapis.com/css2?family=Kanit:wght@300;400;500&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Kanit:wght@300;400;600;700&family=Sarabun:wght@300;400;600&display=swap');
 
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-    font-family: 'Kanit', sans-serif;
+:root {
+    --green-deep:   #1b5e20;
+    --green-mid:    #2e7d32;
+    --green-bright: #43a047;
+    --green-light:  #a5d6a7;
+    --text-dark:    #1a2e1a;
+    --text-muted:   #5a7a5a;
+    --white:        #ffffff;
+    --shadow:       rgba(27,94,32,0.15);
 }
+
+* { box-sizing: border-box; margin: 0; padding: 0; }
 
 body {
-    background: linear-gradient(135deg, #d8f3dc, #b7e4c7);
-    height: 100vh;
+    min-height: 100vh;
+    font-family: 'Sarabun', sans-serif;
+    background: #d4edda;
     display: flex;
-    justify-content: center;
     align-items: center;
+    justify-content: center;
+    overflow: hidden;
+    position: relative;
 }
 
-/* กล่อง */
+body::before {
+    content: '';
+    position: fixed;
+    inset: 0;
+    background:
+        radial-gradient(ellipse at 15% 20%, rgba(129,199,132,.45) 0%, transparent 50%),
+        radial-gradient(ellipse at 85% 80%, rgba(76,175,80,.35) 0%, transparent 50%),
+        linear-gradient(160deg, #c8e6c9 0%, #a5d6a7 40%, #dcedc8 100%);
+    z-index: 0;
+    animation: bgShift 12s ease-in-out infinite alternate;
+}
+@keyframes bgShift {
+    from { filter: hue-rotate(0deg) brightness(1); }
+    to   { filter: hue-rotate(8deg) brightness(1.05); }
+}
+
+
 .login-container {
-    background: #fff;
-    padding: 40px;
-    border-radius: 20px;
-    width: 350px;
-    box-shadow: 0 10px 25px rgba(0,0,0,0.1);
-    text-align: center;
+    position: relative;
+    z-index: 10;
+    background: rgba(255,255,255,.88);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    border: 1.5px solid rgba(165,214,167,.6);
+    border-radius: 28px;
+    padding: 52px 48px;
+    width: 100%;
+    max-width: 380px;
+    box-shadow: 0 8px 32px var(--shadow), 0 2px 8px rgba(255,255,255,.5) inset;
+    animation: slideUp .6s cubic-bezier(.16,1,.3,1) both;
+}
+@keyframes slideUp {
+    from { opacity: 0; transform: translateY(30px) scale(.97); }
+    to   { opacity: 1; transform: translateY(0) scale(1); }
 }
 
-h2 {
-    color: #1b4332;
+.custom-logo {
+  width: 80px;
+  height: 80px;
+  object-fit: cover;
+  border-radius: 12px;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.3);
+  transition: all 0.3s ease;
+  justify-items: center;
+  display: block;
+  margin: 0 auto;
+}
+
+.text-muted {
+    color: var(--text-muted);
+    font-size: 0.875rem;
+    font-weight: 400;
+    text-align: center;
+    display: block;
+    margin-top: 32px;
+}
+
+.login-container h2 {
+    font-family: 'Kanit', sans-serif;
+    font-size: 1.8rem;
+    font-weight: 700;
+    color: var(--green-deep);
+    text-align: center;
+    margin-bottom: 4px;
 }
 
 .sub {
-    font-size: 14px;
-    margin-bottom: 20px;
-    color: #409167;
+    text-align: center;
+    font-size: .95rem;
+    color: var(--text-muted);
+    margin-bottom: 36px;
+    font-weight: 600;
+    letter-spacing: 2px;
+    text-transform: uppercase;
 }
 
-/* input */
 .input-box {
     position: relative;
-    margin: 15px 0;
+    margin-bottom: 16px;
 }
-
 .input-box input {
     width: 100%;
-    padding: 12px 40px;
-    border-radius: 10px;
-    border: 2px solid #eee;
+    padding: 14px 18px 14px 48px;
+    background: rgba(232,245,233,.7);
+    border: 1.5px solid var(--green-light);
+    border-radius: 14px;
+    font-family: 'Sarabun', sans-serif;
+    font-size: 1rem;
+    color: var(--text-dark);
     outline: none;
-    transition: 0.3s;
-    padding-right: 50px;
+    transition: all .25s;
 }
-
+.input-box input::placeholder { color: #9abf9a; }
 .input-box input:focus {
-    border-color: #52b788;
+    background: rgba(255,255,255,.95);
+    border-color: var(--green-bright);
+    box-shadow: 0 0 0 4px rgba(67,160,71,.12);
 }
 
-/* icon ซ้าย */
-.input-box i {
+.input-box i.bx {
     position: absolute;
-    left: 10px;
-    top: 12px;
-    color: #409167;
+    left: 16px;
+    top: 50%;
+    transform: translateY(-50%);
+    font-size: 1.2rem;
+    color: var(--green-bright);
+    pointer-events: none;
 }
 
-/* icon ขวา */
 .toggle {
     position: absolute;
-    right: 5px;
-    top: -5px;
-    cursor: pointer;
+    right: 14px;
+    top: 50%;
     transform: translateY(-50%);
+    background: none;
+    border: none;
+    cursor: pointer;
+    color: var(--text-muted);
+    font-size: 1rem;
+    padding: 4px;
+    transition: color .2s;
+}
+.toggle:hover { color: var(--green-mid); }
+
+.error-msg {
+    background: rgba(229,115,115,.12);
+    border: 1px solid rgba(229,115,115,.4);
+    border-radius: 10px;
+    color: #c62828;
+    font-size: .9rem;
+    padding: 10px 14px;
+    margin-bottom: 16px;
+    text-align: center;
 }
 
-.toggle i{
-    font-size: 26px;
-}
-
-/* ปุ่ม */
 .login-btn {
     width: 100%;
-    padding: 12px;
-    background: #2d6a4f;
-    color: white;
+    padding: 15px;
+    margin-top: 8px;
+    background: linear-gradient(135deg, var(--green-deep) 0%, var(--green-bright) 100%);
+    color: var(--white);
     border: none;
-    border-radius: 25px;
-    margin-top: 15px;
+    border-radius: 14px;
+    font-family: 'Kanit', sans-serif;
+    font-size: 1.1rem;
+    font-weight: 600;
+    letter-spacing: 1px;
     cursor: pointer;
-    transition: 0.3s;
+    box-shadow: 0 4px 20px rgba(46,125,50,.35);
+    transition: all .25s;
 }
-
 .login-btn:hover {
-    background: #1b4332;
+    transform: translateY(-2px);
+    box-shadow: 0 8px 28px rgba(46,125,50,.45);
 }
-
-/* error */
-.error-msg {
-    background: #ffe5e5;
-    color: #b00020;
-    padding: 10px;
-    border-radius: 10px;
-    margin-top: 10px;
-    font-size: 14px;
-}
+.login-btn:active { transform: translateY(0); }

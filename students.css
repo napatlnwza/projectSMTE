@@ -1,0 +1,99 @@
+/* ── students.css ── */
+/* styles เฉพาะหน้า students.php (ใช้ร่วมกับ dashboard.css) */
+
+/* ── Page Header ── */
+.page-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 24px;
+}
+.page-title {
+    font-family: 'Prompt', sans-serif;
+    font-size: 1.4rem;
+    color: var(--accent);
+}
+.back-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    background: none;
+    border: 1.5px solid var(--border);
+    border-radius: 10px;
+    padding: 8px 18px;
+    color: var(--muted);
+    font-family: 'Sarabun', sans-serif;
+    font-size: .9rem;
+    font-weight: 600;
+    text-decoration: none;
+    transition: all .2s;
+}
+.back-btn:hover { border-color: var(--accent); color: var(--accent); }
+
+/* ── Toolbar ── */
+.toolbar {
+    display: flex;
+    gap: 12px;
+    align-items: center;
+    margin-bottom: 20px;
+    flex-wrap: wrap;
+}
+.toolbar input[type=text] {
+    background: #f1f8f1;
+    border: 1.5px solid var(--border);
+    border-radius: 10px;
+    color: var(--text);
+    padding: 10px 16px;
+    font-family: 'Sarabun', sans-serif;
+    font-size: .95rem;
+    flex: 1;
+    min-width: 200px;
+}
+.toolbar input[type=text]:focus { outline: none; border-color: var(--accent); }
+.toolbar input[type=text]::placeholder { color: #a5c8a7; }
+
+/* ── Filter Buttons ── */
+.filter-group { display: flex; gap: 8px; }
+.filter-btn {
+    background: var(--card);
+    border: 1.5px solid var(--border);
+    border-radius: 8px;
+    padding: 8px 16px;
+    font-family: 'Sarabun', sans-serif;
+    font-size: .85rem;
+    font-weight: 600;
+    color: var(--muted);
+    cursor: pointer;
+    transition: all .2s;
+    text-decoration: none;
+}
+.filter-btn:hover,
+.filter-btn.active      { background: #e8f5e9; border-color: var(--accent); color: var(--accent); }
+.filter-btn.active-fail { background: #ffebee; border-color: var(--fail);   color: var(--fail); }
+
+/* ── Count Label ── */
+.count-label {
+    font-size: .85rem;
+    color: var(--muted);
+    margin-left: auto;
+    white-space: nowrap;
+}
+.count-label span { font-weight: 700; color: var(--accent); }
+
+/* ── Student Table ── */
+.students-table th:nth-child(4) { text-align: right; }
+.students-table td:nth-child(4) { text-align: right; font-family: 'Prompt', sans-serif; font-weight: 700; }
+.score-pos  { color: var(--pass); }
+.score-neg  { color: var(--fail); }
+.score-zero { color: var(--muted); }
+
+/* ── Sort Header ── */
+.sort-th {
+    cursor: pointer;
+    user-select: none;
+    white-space: nowrap;
+}
+.sort-th:hover { color: var(--accent2); }
+.sort-arrow { margin-left: 4px; opacity: .4; font-size: 1.5rem; }
+.sort-th.asc  .sort-arrow { opacity: 1; }
+.sort-th.desc .sort-arrow { opacity: 1; }

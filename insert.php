@@ -26,6 +26,10 @@ $stmt->bind_param("ss", $id, $formatpassword);
 $stmt->execute();
 $result = $stmt->get_result();
 if ($result->num_rows == 1) {
+    $row=$result->fetch_assoc();
+    $_SESSION['user_id']   = $row['id'];     // ไว้ใช้ query DB ในหน้าอื่น
+    $_SESSION['user_name'] = $row['name'];   // ไว้แสดงชื่อ
+    $_SESSION['user_role'] = 'student'; // ไว้เชคสิทธิ์
     header("Location: index.php");
     exit();
 }
@@ -36,6 +40,10 @@ else {
     $result_admin = $stmt_admin->get_result();
 
     if ($result_admin->num_rows == 1) {
+        $row_admin = $result_admin->fetch_assoc();
+        $_SESSION['user_id']   = $row_admin['email'];  // admin ใช้ email เป็น key
+        $_SESSION['user_name'] = $row_admin['name'];   // ไว้แสดงชื่อ
+        $_SESSION['user_role'] = 'admin';              // ไว้เช็คสิทธิ์
         header("Location: indexadmin.php");
         exit();
     } else {
