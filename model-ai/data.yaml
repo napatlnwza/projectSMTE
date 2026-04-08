@@ -1,0 +1,13 @@
+train: ../train/images
+val: ../valid/images
+test: ../test/images
+
+nc: 1
+names: ['bottle']
+
+roboflow:
+  workspace: 29689-svk-ac-th
+  project: trash-svk
+  version: 1
+  license: CC BY 4.0
+  url: https://universe.roboflow.com/29689-svk-ac-th/trash-svk/dataset/1
